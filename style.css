@@ -1,19 +1,56 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
-* {
-  font-family: 'Rubik', sans-serif;
-}
-
+/*Resposive params*/
+/*Devices*/
+/*Mixin media querie*/
+/*end responsive params*/
 body {
   overflow-x: hidden;
+  background-color: #24262d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 /*Navbar*/
 section.container {
-  padding: 0 150px;
-  background-color: #24262d;
-  height: 100vh;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
+  width: 100%;
+  /*navbar style end*/
+  /*start body section*/
+}
+
+@media screen and (min-width: 1900px) {
+  section.container {
+    padding: 0 300px;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1899px) {
+  section.container {
+    padding: 0 100px;
+  }
+}
+
+@media screen and (min-width: 760px) and (max-width: 1199px) {
+  section.container {
+    padding: 0 80px;
+  }
+}
+
+@media (max-width: 759px) {
+  section.container {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: 479px) {
+  section.container {
+    padding: 0 50px;
+  }
 }
 
 section.container nav {
@@ -49,14 +86,31 @@ section.container nav ul li {
   font-size: 1.1em;
 }
 
+@media screen and (min-width: 760px) and (max-width: 1199px) {
+  section.container nav ul li:nth-child(n + 2):nth-child(-n + 5) {
+    display: none;
+  }
+}
+
+@media (max-width: 759px) {
+  section.container nav ul li:nth-child(n + 2):nth-child(-n + 5) {
+    display: none;
+  }
+}
+
 section.container nav ul li:first-child {
   margin-left: 0;
   padding-left: 0;
+  font-size: 1.6em;
 }
 
 section.container nav ul li a {
   text-decoration: none;
   color: #aaacae;
+}
+
+section.container nav ul li a:hover {
+  color: white;
 }
 
 section.container nav ul li a.logo {
@@ -82,9 +136,16 @@ section.container nav a.btn-menu {
   background-color: #fdcf49;
 }
 
-/*navbar style end*/
-/*start body section*/
-.body-img {
+section.container nav a.btn-menu:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+section.container nav a.btn-menu:hover:nth-child(1) {
+  padding: -1px;
+}
+
+section.container .body-img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -94,27 +155,53 @@ section.container nav a.btn-menu {
   padding: 80px 0;
 }
 
-div.content-body {
+@media (max-width: 759px) {
+  section.container .body-img {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0;
+  }
+}
+
+section.container div.content-body {
   line-height: 3.7em;
 }
 
-div.content-body h1.logo {
+section.container div.content-body h1.logo {
   font-size: 40pt;
   font-weight: bold;
   color: #fff;
 }
 
-div.content-body h1.logo span {
+@media (max-width: 759px) {
+  section.container div.content-body h1.logo {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  section.container div.content-body h1.logo {
+    font-size: 60pt;
+    line-height: 60pt;
+  }
+}
+
+section.container div.content-body h1.logo span {
   color: #fdc521;
 }
 
-div.content-body p.subtitle {
+section.container div.content-body p.subtitle {
   font-size: 1.1em;
   color: #c8c8ca;
   margin-bottom: 30px;
 }
 
-div.content-body .buttons {
+section.container div.content-body .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -127,7 +214,16 @@ div.content-body .buttons {
           align-items: center;
 }
 
-div.content-body .buttons a[href="appstore"] {
+@media (max-width: 759px) {
+  section.container div.content-body .buttons {
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+section.container div.content-body .buttons a[href="appstore"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -141,12 +237,33 @@ div.content-body .buttons a[href="appstore"] {
   color: white;
 }
 
-div.content-body .buttons a[href="appstore"] span {
+section.container div.content-body .buttons a[href="appstore"]:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+section.container div.content-body .buttons a[href="appstore"]:hover:nth-child(1) {
+  padding: -1px;
+}
+
+@media screen and (min-width: 1900px) {
+  section.container div.content-body .buttons a[href="appstore"] {
+    font-size: 1.1em;
+  }
+}
+
+section.container div.content-body .buttons a[href="appstore"] span {
   font-size: 1.1em;
   font-weight: bold;
 }
 
-div.content-body .buttons a[href="playvideo"] {
+@media screen and (min-width: 1900px) {
+  section.container div.content-body .buttons a[href="appstore"] span {
+    font-size: 1.2em;
+  }
+}
+
+section.container div.content-body .buttons a[href="playvideo"] {
   padding: 10px 20px;
   border-radius: 12px;
   text-decoration: none;
@@ -155,8 +272,50 @@ div.content-body .buttons a[href="playvideo"] {
   font-size: 1.1em;
 }
 
-i.fa-apple {
+section.container div.content-body .buttons a[href="playvideo"]:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+section.container div.content-body .buttons a[href="playvideo"]:hover:nth-child(1) {
+  padding: -1px;
+}
+
+@media screen and (min-width: 1900px) {
+  section.container div.content-body .buttons a[href="playvideo"] {
+    font-size: 1.2em;
+  }
+}
+
+section.container i.fa-apple {
   font-size: 50px;
+}
+
+section.container .imgs-background {
+  text-align: center;
+  width: 400px;
+}
+
+@media screen and (min-width: 1900px) {
+  section.container .imgs-background {
+    width: 500px;
+  }
+}
+
+@media screen and (min-width: 760px) and (max-width: 1199px) {
+  section.container .imgs-background {
+    width: 40%;
+  }
+}
+
+@media (max-width: 759px) {
+  section.container .imgs-background {
+    width: 70%;
+  }
+}
+
+section.container .imgs-background img {
+  width: 100%;
 }
 
 /*end body section*/

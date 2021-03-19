@@ -1,15 +1,9 @@
 //****font style
 //one section - Home
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
 
 $margin-nav: 40px 20px;
-
-$w-responsive-sizes-s-min: 400px;
-$w-responsive-sizes-s-max: 600px;
-$w-responsive-sizes-m-min: 1280px;
-$w-responsive-sizes-m-max: 1920px;
-$w-responsive-sizes-g: 2000px;
 
 $padding-s: 50px;
 $padding-m: 100px;
@@ -19,27 +13,87 @@ $text-s: 0.8em;
 $text-m: 0.9em;
 $text-l: 1.1em;
 
-@mixin properties-button{
+/*Resposive params*/
+/*Devices*/
+$g-device: 1900px;
+$l-device: 1200px;
+$m-device: 760px;
+$s-device: 480px;
+$ss-device: 250px;
+
+/*Mixin media querie*/
+@mixin dimension($size) {
+    @if $size == g {
+        @media screen and (min-width: #{$g-device}) {
+            @content;
+        }
+    } @else if $size == l {
+        @media screen and (min-width: #{$l-device}) and (max-width: #{$g-device - 1}) {
+            @content;
+        }
+    } @else if $size == m {
+        @media screen and (min-width: #{$m-device}) and (max-width: #{$l-device - 1}) {
+            @content;
+        }
+    } @else if $size == s {
+        @media (max-width: #{$m-device - 1}) {
+            @content;
+        }
+    } @else if $size == ss {
+        @media (max-width: #{$s-device - 1}) {
+            @content;
+        }
+    }
+}
+/*end responsive params*/
+
+@mixin properties-button {
     padding: 10px 20px;
     border-radius: 12px;
     text-decoration: none;
     color: white;
 }
 
-*{
-    font-family: 'Rubik', sans-serif;
+@mixin btn-scale {
+    &:hover {
+        transform: scale(1.05);
+        &:nth-child(1) {
+            padding: -1px;
+        }
+    }
 }
 
 body {
     overflow-x: hidden;
+    background-color: #24262d;
+    display: flex;
+    justify-content: center;
 }
 
 /*Navbar*/
 section.container {
-    padding: 0 $padding-g;
-    background-color: #24262d;
-    height: 100vh;
-    font-family: 'Rubik', sans-serif;
+    font-family: "Rubik", sans-serif;
+    width: 100%;
+
+    @include dimension(g) {
+        padding: 0 100 * 3px;
+    }
+
+    @include dimension(l) {
+        padding: 0 100px;
+    }
+
+    @include dimension(m) {
+        padding: 0 80px;
+    }
+
+    @include dimension(s) {
+        padding: 0 50px;
+    }
+
+    @include dimension(ss) {
+        padding: 0 50px;
+    }
 
     nav {
         display: flex;
@@ -53,13 +107,28 @@ section.container {
                 padding: 10px;
                 margin: $margin-nav;
                 font-size: $text-l;
+                &:nth-child(n + 2):nth-child(-n + 5) {
+                    @include dimension(m) {
+                        display: none;
+                    }
+
+                    @include dimension(s) {
+                        display: none;
+                    }
+                }
+
                 &:first-child {
                     margin-left: 0;
                     padding-left: 0;
+                    font-size: $text-l + 0.5em;
                 }
                 a {
                     text-decoration: none;
                     color: #aaacae;
+
+                    &:hover {
+                        color: white;
+                    }
 
                     &.logo {
                         font-weight: bold;
@@ -83,64 +152,114 @@ section.container {
             color: #3b3830;
             text-decoration: none;
             background-color: #fdcf49;
+
+            @include btn-scale();
         }
     }
-}
-/*navbar style end*/
 
-/*start body section*/
+    /*navbar style end*/
 
-.body-img {
-    display: flex;
-    justify-content: space-between;
-    padding: 80px 0;
-}
-
-div.content-body {
-    line-height: 3.7em;
-    h1.logo {
-        font-size: 40pt;
-        font-weight: bold;
-        color: #fff;
-        span {
-            color: #fdc521;
-        }
-    }
-    p.subtitle {
-        font-size: $text-l;
-        color: #c8c8ca;
-        margin-bottom: 30px;
-    }
-
-    .buttons {
+    /*start body section*/
+    .body-img {
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        a[href="appstore"] {
-            display: flex;
-            background-color: #3a3949;
-            line-height: 1.5em;
-            font-weight: lighter;
-            font-size: $text-s;
-            @include properties-button();
+        justify-content: space-between;
+        padding: 80px 0;
+        @include dimension(s) {
+            flex-direction: column-reverse;
+            align-items: center;
+            padding: 0;
+        }
+    }
+
+    div.content-body {
+        line-height: 3.7em;
+        h1.logo {
+            font-size: 40pt;
+            font-weight: bold;
+            color: #fff;
+            @include dimension(s) {
+                margin-top: 50px;
+            }
+
+            @include dimension(g) {
+                font-size: 60pt;
+                line-height: 60pt;
+            }
             span {
-                font-size: $text-l;
-                font-weight: bold;
+                color: #fdc521;
             }
         }
-
-        a[href="playvideo"] {
-            @include properties-button();
-            margin-left: 10px;
+        p.subtitle {
             font-size: $text-l;
+            color: #c8c8ca;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            @include dimension(s) {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            a[href="appstore"] {
+                @include btn-scale();
+                display: flex;
+                background-color: #3a3949;
+                line-height: 1.5em;
+                font-weight: lighter;
+                font-size: $text-s;
+                @include dimension(g) {
+                    font-size: $text-l;
+                }
+                @include properties-button();
+                span {
+                    font-size: $text-l;
+                    font-weight: bold;
+                    @include dimension(g) {
+                        font-size: $text-l + 0.1;
+                    }
+                }
+            }
+
+            a[href="playvideo"] {
+                @include properties-button();
+                margin-left: 10px;
+                font-size: $text-l;
+                @include btn-scale();
+                @include dimension(g) {
+                    font-size: $text-l + 0.1;
+                }
+            }
+        }
+    }
+
+    i.fa-apple {
+        font-size: 50px;
+    }
+
+    .imgs-background {
+        text-align: center;
+        width: 400px;
+        @include dimension(g) {
+            width: 500px;
+        }
+
+        @include dimension(m) {
+            width: 40%;
+        }
+
+        @include dimension(s) {
+            width: 70%;
+        }
+        img {
+            width: 100%;
         }
     }
 }
-
-i.fa-apple{
-    font-size: 50px;
-}
-
 /*end body section*/
 
 //finish section home
