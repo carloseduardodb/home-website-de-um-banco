@@ -68,6 +68,7 @@ body {
     background-color: #24262d;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 /*Navbar*/
@@ -92,7 +93,7 @@ section.container {
     }
 
     @include dimension(ss) {
-        padding: 0 50px;
+        padding: 0 20px;
     }
 
     nav {
@@ -100,7 +101,7 @@ section.container {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        ul {
+        ul.menu {
             display: flex;
             flex-direction: row;
             li {
@@ -144,7 +145,6 @@ section.container {
 
         /*float btn testing*/
         a.btn-menu {
-            margin: $margin-nav;
             padding: 13px 30px;
             border-radius: 50px;
             min-width: max-content;
@@ -154,6 +154,96 @@ section.container {
             background-color: #fdcf49;
 
             @include btn-scale();
+
+            @include dimension(m) {
+                display: none;
+            }
+
+            @include dimension(s) {
+                display: none;
+            }
+        }
+
+        .btn-responsive {
+            padding: 13px 30px;
+            border-radius: 20px;
+            min-width: max-content;
+            max-height: 15px;
+            color: #3b3830;
+            text-decoration: none;
+            background-color: #fdcf49;
+            padding: 15px;
+            display: none;
+            transition: all 0.3s;
+
+            @include dimension(m) {
+                display: inline;
+            }
+
+            @include dimension(s) {
+                display: inline;
+            }
+
+            div {
+                width: 20px;
+                height: 2px;
+                background-color: #24262d;
+                &:nth-child(1) {
+                    margin-bottom: 5px;
+                }
+                &:nth-child(2) {
+                    margin-bottom: 5px;
+                }
+            }
+            .hidden-nav {
+                display: none;
+            }
+        }
+
+        .btn-responsive.active {
+            padding: 20px;
+            position: relative;
+            transition: all 0.3s;
+            div {
+                width: 20px;
+                height: 5px;
+                &:nth-child(1) {
+                    margin-bottom: 5px;
+                    display: none;
+                }
+                &:nth-child(2) {
+                    position: absolute;
+                    margin-bottom: 5px;
+                    transform: rotate(45deg);
+                }
+                &:nth-child(3) {
+                    transform: rotate(-45deg);
+                }
+            }
+
+            nav {
+                transition: all 0.5s;
+                position: absolute;
+                right: 5px;
+                margin-top: 30px;
+                ul {
+                    padding: 25px;
+                    border-radius: 10px;
+                    background-color: #3f3d56;
+                    li {
+                        margin-bottom: 16px;
+                        text-align: end;
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        a {
+                            text-decoration: none;
+                            color: white;
+                        }
+                    }
+                }
+            }
         }
     }
 

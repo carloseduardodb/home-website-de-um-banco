@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.9" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="reset.css" />
     <script
@@ -27,7 +27,22 @@
           <li><a href="#">Delivery</a></li>
           <li><a href="#">Contacts</a></li>
         </ul>
+
         <a href="#" class="btn-menu">Get card</a>
+
+        <div id="responsive-menu" class="btn-responsive">
+          <div></div>
+          <div></div>
+          <div></div>
+          <nav id="nav" class="hidden-nav">
+            <ul>
+              <li><a href="#">Product</a></li>
+              <li><a href="#">Company</a></li>
+              <li><a href="#">Delivery</a></li>
+              <li><a href="#">Contacts</a></li>
+            </ul>
+          </nav>
+        </div>
       </nav>
       <!----End menu-->
 
@@ -42,7 +57,10 @@
 
           <div class="buttons">
             <a href="appstore">
-              <i class="fab fa-apple" style="font-size: 30pt; padding-right: 15px;"></i>
+              <i
+                class="fab fa-apple"
+                style="font-size: 30pt; padding-right: 15px"
+              ></i>
               <p>
                 Download on the <br />
                 <span>App Store</span>
@@ -53,7 +71,10 @@
         </div>
 
         <div class="imgs-background">
-          <img src="img/undraw_Credit_card_re_blml.svg" alt="fundo com cartões" />
+          <img
+            src="img/undraw_Credit_card_re_blml.svg"
+            alt="fundo com cartões"
+          />
         </div>
       </div>
       <br />
@@ -61,3 +82,20 @@
     <!-- Finish section one -Home --->
   </body>
 </html>
+
+<script>
+  let responsive_menu = document.getElementById("responsive-menu");
+  let nav = document.getElementById("nav");
+  var status_menu = true;
+  responsive_menu.addEventListener("click", () => {
+    if (status_menu) {
+      responsive_menu.setAttribute("class", "btn-responsive active");
+      nav.setAttribute("class", "");
+      status_menu = false;
+    } else {
+      responsive_menu.setAttribute("class", "btn-responsive");
+      nav.setAttribute("class", "hidden-nav");
+      status_menu = true;
+    }
+  });
+</script>
