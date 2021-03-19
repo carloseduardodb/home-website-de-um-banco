@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
+* {
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/*Navbar*/
+section.container {
+  padding: 0 150px;
+  background-color: #24262d;
+  height: 100vh;
+  font-family: 'Rubik', sans-serif;
+}
+
+section.container nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /*float btn testing*/
+}
+
+section.container nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+section.container nav ul li {
+  padding: 10px;
+  margin: 40px 20px;
+  font-size: 1.1em;
+}
+
+section.container nav ul li:first-child {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+section.container nav ul li a {
+  text-decoration: none;
+  color: #aaacae;
+}
+
+section.container nav ul li a.logo {
+  font-weight: bold;
+  color: white;
+}
+
+section.container nav ul li a.logo span {
+  color: #fdc521;
+  font-size: 15pt;
+}
+
+section.container nav a.btn-menu {
+  margin: 40px 20px;
+  padding: 13px 30px;
+  border-radius: 50px;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  max-height: 15px;
+  color: #3b3830;
+  text-decoration: none;
+  background-color: #fdcf49;
+}
+
+/*navbar style end*/
+/*start body section*/
+.body-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 80px 0;
+}
+
+div.content-body {
+  line-height: 3.7em;
+}
+
+div.content-body h1.logo {
+  font-size: 40pt;
+  font-weight: bold;
+  color: #fff;
+}
+
+div.content-body h1.logo span {
+  color: #fdc521;
+}
+
+div.content-body p.subtitle {
+  font-size: 1.1em;
+  color: #c8c8ca;
+  margin-bottom: 30px;
+}
+
+div.content-body .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.content-body .buttons a[href="appstore"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #3a3949;
+  line-height: 1.5em;
+  font-weight: lighter;
+  font-size: 0.8em;
+  padding: 10px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: white;
+}
+
+div.content-body .buttons a[href="appstore"] span {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+div.content-body .buttons a[href="playvideo"] {
+  padding: 10px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: white;
+  margin-left: 10px;
+  font-size: 1.1em;
+}
+
+i.fa-apple {
+  font-size: 50px;
+}
+
+/*end body section*/
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,146 @@
+//****font style
+//one section - Home
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+$margin-nav: 40px 20px;
+
+$w-responsive-sizes-s-min: 400px;
+$w-responsive-sizes-s-max: 600px;
+$w-responsive-sizes-m-min: 1280px;
+$w-responsive-sizes-m-max: 1920px;
+$w-responsive-sizes-g: 2000px;
+
+$padding-s: 50px;
+$padding-m: 100px;
+$padding-g: 150px;
+
+$text-s: 0.8em;
+$text-m: 0.9em;
+$text-l: 1.1em;
+
+@mixin properties-button{
+    padding: 10px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+}
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/*Navbar*/
+section.container {
+    padding: 0 $padding-g;
+    background-color: #24262d;
+    height: 100vh;
+    font-family: 'Rubik', sans-serif;
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        ul {
+            display: flex;
+            flex-direction: row;
+            li {
+                padding: 10px;
+                margin: $margin-nav;
+                font-size: $text-l;
+                &:first-child {
+                    margin-left: 0;
+                    padding-left: 0;
+                }
+                a {
+                    text-decoration: none;
+                    color: #aaacae;
+
+                    &.logo {
+                        font-weight: bold;
+                        color: white;
+                        span {
+                            color: #fdc521;
+                            font-size: 15pt;
+                        }
+                    }
+                }
+            }
+        }
+
+        /*float btn testing*/
+        a.btn-menu {
+            margin: $margin-nav;
+            padding: 13px 30px;
+            border-radius: 50px;
+            min-width: max-content;
+            max-height: 15px;
+            color: #3b3830;
+            text-decoration: none;
+            background-color: #fdcf49;
+        }
+    }
+}
+/*navbar style end*/
+
+/*start body section*/
+
+.body-img {
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 0;
+}
+
+div.content-body {
+    line-height: 3.7em;
+    h1.logo {
+        font-size: 40pt;
+        font-weight: bold;
+        color: #fff;
+        span {
+            color: #fdc521;
+        }
+    }
+    p.subtitle {
+        font-size: $text-l;
+        color: #c8c8ca;
+        margin-bottom: 30px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        a[href="appstore"] {
+            display: flex;
+            background-color: #3a3949;
+            line-height: 1.5em;
+            font-weight: lighter;
+            font-size: $text-s;
+            @include properties-button();
+            span {
+                font-size: $text-l;
+                font-weight: bold;
+            }
+        }
+
+        a[href="playvideo"] {
+            @include properties-button();
+            margin-left: 10px;
+            font-size: $text-l;
+        }
+    }
+}
+
+i.fa-apple{
+    font-size: 50px;
+}
+
+/*end body section*/
+
+//finish section home
